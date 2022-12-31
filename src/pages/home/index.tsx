@@ -28,7 +28,7 @@ export const Home = () => {
               src={`https://image.tmdb.org/t/p/original/${filme.backdrop_path}`}
               alt={`imagem do filme ${filme.title}`}
             />
-            <Link to={`/filme/${filme.id}`}>Acessar</Link>
+            <Link to={`/movies/${filme.id}`}>Acessar</Link>
           </Cards>
         );
       })}
