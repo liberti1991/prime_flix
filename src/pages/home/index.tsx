@@ -1,11 +1,15 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { IFilmes } from "./interfaces";
+
 import { useLoadingFilmes } from "./service";
+
 import { Cards, ContainerHomePage } from "./stylesHome";
+
+import { IFilmes } from "./interfaces";
 
 export const Home = () => {
   const { loadFilmes } = useLoadingFilmes();
+
   const [filmes, filmesSet] = useState<IFilmes[]>([]);
 
   useEffect(() => {
@@ -13,8 +17,6 @@ export const Home = () => {
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  console.log("filmes", filmes);
 
   return (
     <ContainerHomePage>

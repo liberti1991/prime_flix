@@ -1,5 +1,7 @@
 import { Route, Routes } from "react-router-dom";
+
 import { Header } from "../components/header";
+
 import { Favorites } from "../pages/favorites";
 import { Home } from "../pages/home";
 import { Movie } from "../pages/movie";

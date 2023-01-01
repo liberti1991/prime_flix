@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+
 import { ContainerNotFound } from "./stylesNotFound";
 
 export const Error = () => {

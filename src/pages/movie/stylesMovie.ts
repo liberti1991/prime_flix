@@ -54,7 +54,7 @@ export const ContainerMovie = styled.div`
             background-color: #d4d4d4;
             text-decoration: none;
             color: #000;
-            padding: 8px 16px;
+            padding: 5px 16px;
 
             :hover {
               background-color: #0c1b33;

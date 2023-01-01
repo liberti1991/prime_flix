@@ -1,35 +1,44 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+
+import { useFavorites } from "./services";
+
+import { ContainerFavorites } from "./stylesFavorites";
+
 import { IDetailsMovie } from "../movie/interfacesMovies";
 
 export const Favorites = () => {
+  const { findListMovies, deleteMovie } = useFavorites();
   const [listMovies, listMoviesSet] = useState<IDetailsMovie[]>([]);
 
   useEffect(() => {
-    const myMovieList: any = localStorage.getItem("@MoviesList") || [];
+    findListMovies({ listMoviesSet });
 
-    listMoviesSet(JSON.parse(myMovieList) || []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  console.log(listMovies);
-
   return (
-    <div>
+    <ContainerFavorites>
       <h1>Meus Favoritos</h1>
+
+      {listMovies.length === 0 && <span>Você não possui nenhum filme salvo :( </span>}
 
       <ul>
         {listMovies.map((item) => {
           return (
             <li key={item.id}>
               <span>{item.title}</span>
+
               <div>
                 <Link to={`/movies/${item.id}`}>Ver detalhes</Link>
-                <button>Excluir</button>
+                <button onClick={() => deleteMovie({ id: item.id, listMovies, listMoviesSet })}>
+                  Excluir
+                </button>
               </div>
             </li>
           );
         })}
       </ul>
-    </div>
+    </ContainerFavorites>
   );
 };

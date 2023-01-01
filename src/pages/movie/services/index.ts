@@ -1,7 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+
 import { api } from "../../../api";
+
 import { UseLoading } from "../../../context";
+
 import { IDetailsMovie, ILoadMovie, ISaveMovie } from "../interfacesMovies";
 
 export const useMovie = () => {
@@ -33,14 +36,8 @@ export const useMovie = () => {
 
     let savedMovies = JSON.parse(myMovieList) || [];
 
-    console.log("details", details);
-
-    console.log("savedMovies", savedMovies);
-
     // .some return true of false
     const hasMovie = savedMovies.some((savedMovie: IDetailsMovie) => savedMovie.id === details?.id);
-
-    console.log("hasMovie", hasMovie);
 
     if (hasMovie) {
       toast.warn("Esse filme já esta na sua lista!");

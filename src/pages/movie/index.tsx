@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { IDetailsMovie } from "./interfacesMovies";
+
 import { useMovie } from "./services";
+
 import { ContainerMovie } from "./stylesMovie";
+
+import { IDetailsMovie } from "./interfacesMovies";
 
 export const Movie = () => {
   const { id } = useParams();
@@ -12,14 +15,11 @@ export const Movie = () => {
 
   useEffect(() => {
     loadMovie({ id, detailsSet });
-    // saveMovie({ id, details });
 
-    return () => console.log("retornei");
+    // return () => console.log("retornei");
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  console.log("details", details);
 
   return (
     <ContainerMovie>
