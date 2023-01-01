@@ -6,7 +6,11 @@ export const useFavorites = () => {
   const findListMovies = ({ listMoviesSet }: IFindListMovies) => {
     const myMovieList: any = localStorage.getItem("@MoviesList") || [];
 
-    listMoviesSet(JSON.parse(myMovieList) || []);
+    if (myMovieList === null) {
+      return listMoviesSet([]);
+    } else {
+      listMoviesSet(JSON.parse(myMovieList));
+    }
   };
 
   const deleteMovie = ({ id, listMovies, listMoviesSet }: IDeleteMovie) => {
