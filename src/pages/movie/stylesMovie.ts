@@ -65,4 +65,24 @@ export const ContainerMovie = styled.div`
       }
     }
   }
+  @media screen and (max-width: 640px) {
+    width: 95%;
+    margin-top: 20px;
+
+    > h1 {
+      font-size: 22px;
+    }
+
+    > article {
+      grid-template-columns: 1fr;
+
+      > section {
+        > div {
+          :first-child {
+            margin-bottom: 20px;
+          }
+        }
+      }
+    }
+  }
 `;
